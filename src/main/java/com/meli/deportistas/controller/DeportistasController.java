@@ -31,7 +31,7 @@ public class DeportistasController {
     public ResponseEntity<?> findSport(@PathVariable String name){
         Optional<Deporte> deporte = deportistasService.findSportByName(name);
         if(deporte.isPresent()){
-            return ResponseEntity.ok().body(deportistasService.findSportByName(name));
+            return ResponseEntity.ok().body(deportistasService.findSportByName(name).get());
         }
 
         return ResponseEntity.noContent().build();
